@@ -21,6 +21,8 @@ function parseCurrency(value: number): string {
 const IndexRoute: React.FC<Props> = ({products}) => {
   const [cart, setCart] = React.useState<Product[]>([]);
   const [selectedImage, setSelectedImage] = React.useState<string>(null);
+  const [selectedText, setSelectedText] = React.useState<string>(null);
+  const [selectedPrice, setSelectedPrice] = React.useState<number>(null);
 
   return (
     <AnimateSharedLayout type="crossfade">
@@ -46,21 +48,26 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   layoutId={product.image}
                   src={product.image}
                   width={250}
-                  onClick={() => setSelectedImage(product.image)}
+                  onClick={() => {
+                    setSelectedImage(product.image);
+                    setSelectedText(product.title);
+                    setSelectedPrice(product.price);
+                  }}
                 />
                 <Box alignItems="center" display="flex" flexDirection="column">
-                  <Text color={"#25C97C"} fontSize={20}>
+                  <Text color={"#FFE32C"} fontSize={20}>
                     {product.title}
                   </Text>
                   <Text fontSize={15}>{product.description}</Text>
-                  <Text fontSize={20} fontWeight="500">
+                  <Text color="white" fontSize="2xl" fontWeight="600">
                     {parseCurrency(product.price)}
                   </Text>
                 </Box>
               </Stack>
               <Button
+                color="black"
                 colorScheme="primary"
-                size="sm"
+                size="md"
                 onClick={() => setCart((cart) => cart.concat(product))}
               >
                 Agregar
@@ -87,22 +94,32 @@ const IndexRoute: React.FC<Props> = ({products}) => {
       </Stack>
       <AnimatePresence>
         {selectedImage && (
-          <Flex
-            key="backdrop"
-            alignItems="center"
-            as={motion.div}
-            backgroundColor="rgba(0,0,0,0.5)"
-            height="100%"
-            justifyContent="center"
-            layoutId={selectedImage}
-            left={0}
-            position="fixed"
-            top={0}
-            width="100%"
-            onClick={() => setSelectedImage(null)}
-          >
-            <Image key="image" src={selectedImage} />
-          </Flex>
+          <Box blur="102px" filter="auto">
+            <Flex
+              key="backdrop"
+              alignItems="center"
+              as={motion.div}
+              backgroundColor="rgba(0,0,0,0.8)"
+              height="100%"
+              justifyContent="center"
+              layoutId={selectedImage}
+              left={0}
+              position="fixed"
+              top={0}
+              width="100%"
+              onClick={() => setSelectedImage(null)}
+            >
+              <Stack>
+                <Text color={"#FFE32C"} fontFamily="monospace" fontSize="3xl" padding={6}>
+                  {selectedText}
+                </Text>
+                <Text color={"white"} fontFamily="monospace" fontSize="3xl" padding={6}>
+                  ${selectedPrice}
+                </Text>
+              </Stack>
+              <Image key="image" src={selectedImage} />
+            </Flex>
+          </Box>
         )}
       </AnimatePresence>
     </AnimateSharedLayout>

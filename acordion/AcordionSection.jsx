@@ -13,12 +13,14 @@ import {
 import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
 
 const AcordionSection = () => {
+
+  
   return (
     <Accordion fontFamily="monospace" marginTop="20">
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box color="#25C97C" fontSize="2xl" textAlign="left">
+            <Box color="#FFE32C" fontSize="2xl" textAlign="left">
               Ubicación
             </Box>
             <AccordionIcon />
@@ -32,16 +34,16 @@ const AcordionSection = () => {
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box color="#25C97C" fontSize="2xl" textAlign="left">
-              Contactos y Redes
+            <Box color="#FFE32C" fontSize="2xl" textAlign="left">
+             Redes Sociales
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </h2>
         <AccordionPanel color="white"  pb={4}>
-          <Stack r flexDirection="row" justifyContent="space-evenly">
-            <Text alignItems="center" display="flex" fontSize="lg" justifyContent="space-evenly" w="3xs">Instagram <AiFillInstagram /> </Text>
-            <Text alignItems="center" display="flex" fontSize="lg" justifyContent="space-evenly" w="3xs">Facebook <AiFillFacebook /> </Text>
+          <Stack  flexDirection="row" justifyContent="space-evenly">
+            <Text alignItems="center" display="flex" fontSize="2xl" justifyContent="space-evenly" w="3xs">Instagram <AiFillInstagram /> </Text>
+            <Text alignItems="center" display="flex" fontSize="2xl" justifyContent="space-evenly" w="3xs">Facebook <AiFillFacebook /> </Text>
           </Stack>
         </AccordionPanel>
       </AccordionItem>

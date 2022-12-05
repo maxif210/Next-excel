@@ -2,7 +2,7 @@ import {extendTheme, theme} from "@chakra-ui/react";
 
 export default extendTheme({
   colors: {
-    primary: theme.colors["green"],
+    primary: theme.colors["yellow"],
   },
   fonts: {
     heading: `'Orbitron', sans-serif`,
@@ -11,7 +11,8 @@ export default extendTheme({
   styles: {
     global: {
       body: {
-        backgroundColor: "black",
+        backgroundColor: "#000000",
+        backgroundImage: "linear-gradient(147deg, #000000 0%, #FF2525 74%)",
       },
     },
   },

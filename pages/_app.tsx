@@ -3,6 +3,7 @@ import {ChakraProvider, Text, Image, Container, Stack, Box, Divider} from "@chak
 import {AppProps} from "next/app";
 
 import AcordionSection from "../acordion/AcordionSection.jsx";
+import TabsSection from "../TabsSection/TabsSection.jsx";
 import theme from "../theme";
 
 const App: React.FC<AppProps> = ({Component, pageProps}) => {
@@ -11,7 +12,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       <Box padding={4}>
         <Container
           borderRadius="sm"
-          boxShadow="md"
+          boxShadow="xl"
           color="white"
           maxWidth="container.xl"
           padding={4}
@@ -23,11 +24,11 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
             marginBottom={6}
             padding={5}
           >
-            <Image alt="logo" borderRadius={7} boxSize="150px" src="/logo.png" width="150px" />
+            <Image alt="logo" borderRadius={7} boxSize="200px" src="/logo.jpg" width="200px" />
           </Stack>
           <Box id="home">
             <Text
-              color="#25C97C"
+              color="#FFE32C"
               fontFamily="fantasy"
               fontSize="5xl"
               marginBottom={6}
@@ -36,16 +37,17 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
               Proba Nuestra Variedad de Lomos y Hamburguesas
             </Text>
             <Image alt="hero" src="./hambur-product.png" />
-            <Divider borderColor="#25C97C" marginY={6} />
-            <Image alt="hero" src="./banner-whatsapp.png" />
+            <Divider borderColor="#FFE32C" marginY={6} />
+            <Image alt="hero" src="./banner-whatsapp.jpg" />
           </Box>
 
-          <Divider borderColor="#25C97C" id="shop" marginY={6} />
+          <Divider borderColor="#FFE32C" id="shop" marginY={6} />
 
           <Component {...pageProps} />
-        </Container>
+          <TabsSection />
 
-        <AcordionSection />
+          <AcordionSection />
+        </Container>
       </Box>
     </ChakraProvider>
   );

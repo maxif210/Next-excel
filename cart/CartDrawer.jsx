@@ -70,7 +70,7 @@ const CartDrawer = ({cart}) => {
             
            {cart.map((product)=> (
            
-          <Box key={product.title} alignItems="center" display="flex" flexDirection="column" padding={6}>
+          <Box key={product.title} alignItems="center" boxShadow={10} display="flex" flexDirection="column" padding={6}>
             <Image
                   borderRightRadius="md"
                   layoutId={product.image}
